@@ -7,14 +7,11 @@ uh=urllib.urlopen(url)
 data=uh.read()
 js=json.loads(data)
 i=0
-#ganador=None
-#perdedor=None
+
 afavor=0
 encontra=0
 equipos=[]
-#totalgoles=0
-#sumlocal=0
-#sumvisitante=0
+
 
 def getEquipos():
 	for fecha in range(1,5):
@@ -46,11 +43,6 @@ def getGolesAcumulados(goleslocal, goles):
 
 jornadainput=raw_input("Ingrese la jornada: ")
 jornada=int(jornadainput)-1
-#totallocal=0
-#totalvisitante=0
-#totaldif=0
-
-
 
 
 if jornada <0 or jornada >=34:
@@ -104,15 +96,7 @@ else:
 					subtotala=getGolesAcumulados(subtotala, golesa)
 					
 
-				#if contrario==club:
-					
-					#golesdos=getGoles(contrario, encontra)
-					#golesb=getGoles(equipo, afavor)
 
-					#subtotaldos=getGolesAcumulados(subtotaldos, golesdos)
-					#subtotalb=getGolesAcumulados(subtotalb, golesb)
-				#sumtotalfavor=subtotaluno+subtotaldos
-				#sumtotalcontra=subtotala+subtotalb
 				diferencia=subtotaluno-subtotala
 			
 			start +=1

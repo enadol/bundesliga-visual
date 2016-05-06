@@ -7,14 +7,11 @@ uh=urllib.urlopen(url)
 data=uh.read()
 js=json.loads(data)
 i=0
-#ganador=None
-#perdedor=None
+
 afavor=0
 encontra=0
 equipos=[]
-#totalgoles=0
-#sumlocal=0
-#sumvisitante=0
+
 
 def getEquipos():
 	for fecha in range(1,5):
@@ -46,12 +43,6 @@ def getGolesAcumulados(goleslocal, goles):
 
 jornadainput=raw_input("Ingrese la jornada: ")
 jornada=int(jornadainput)-1
-#totallocal=0
-#totalvisitante=0
-#totaldif=0
-
-
-
 
 if jornada <0 or jornada >=34:
 	print "No se jugó la jornada "+jornadainput+" en ese torneo. Verifique y vuelva a ingresar."
@@ -94,16 +85,6 @@ else:
 
 			
 
-				#if equipo==club:
-
-					
-				#	golesuno=getGoles(equipo,afavor)
-				#	golesa=getGoles(contrario, encontra)
-
-				#	subtotaluno=getGolesAcumulados(subtotaluno, golesuno)
-				#	subtotala=getGolesAcumulados(subtotala, golesa)
-					
-
 				if contrario==club:
 					
 					golesdos=getGoles(contrario, encontra)
@@ -111,8 +92,7 @@ else:
 
 					subtotaldos=getGolesAcumulados(subtotaldos, golesdos)
 					subtotalb=getGolesAcumulados(subtotalb, golesb)
-				#sumtotalfavor=subtotaluno+subtotaldos
-				#sumtotalcontra=subtotala+subtotalb
+
 				diferencia=subtotaldos-subtotalb
 			
 			start +=1
@@ -121,10 +101,6 @@ else:
 			print "Diferencia acumulada de goles para el "+club+" en la jornada "+str(fecha+1)+": "+ str(diferencia)+"\n"
 			cur.execute('''INSERT OR IGNORE INTO GolesVisitante (Equipo, Jornada, Goles_a_favor, Goles_en_contra, Diferencia)  VALUES (?, ?, ?, ?, ? )''', (club, fecha+1, subtotaldos, subtotalb, diferencia))
 		
-
-
-
-			
 
 			#cur.execute('SELECT max(id) FROM Goles')
 			#try:
@@ -136,12 +112,8 @@ else:
    			#	 row = None
 
 #print start
-
-			
-
 			conn.commit()
 	
-
-			
+		
 uh.close()
 cur.close()

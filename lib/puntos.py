@@ -52,7 +52,6 @@ def getPuntosAcumulados(puntoslocal, puntos):
 jornadainput=raw_input("Ingrese la jornada: ")
 jornada=int(jornadainput)-1
 
-#equipoinput=raw_input("Ingrese el equipo: ")
 
 if jornada <0 or jornada >=34:
 	print "No se jugó la jornada "+jornadainput+" en ese torneo. Verifique y vuelva a ingresar."
@@ -89,20 +88,20 @@ else:
 
 				if equipo==club:
 					puntosuno=getPuntos(equipo, afavor, encontra)
-					#puntosa=getPuntos(contrario, encontra, afavor)
+				
 
 					subtotaluno=getPuntosAcumulados(subtotaluno, puntosuno)
-					#subtotala=getPuntosAcumulados(subtotala, puntosa)
+					
 		
 
 				if contrario==club:
 					puntosdos=getPuntos(contrario, encontra, afavor)
-					#puntosb=getPuntos(equipo, afavor, encontra)	
+						
 		
 					subtotaldos=getPuntosAcumulados(subtotaldos, puntosdos)
-					#subtotalb=getPuntosAcumulados(subtotalb, puntosb)
+					
 				sumtotallocal=subtotaluno+subtotaldos
-				#sumtotalvisitante=subtotala+subtotalb
+				
 				sumapuntos=sumtotallocal+sumtotalvisitante
 			print "El equipo "+club+" sumaba "+str(subtotaluno)+" puntos como local a la "+jornadascompletas
 			print "El equipo "+club+" sumaba "+str(subtotaldos)+" puntos como visitante a la "+jornadascompletas	
