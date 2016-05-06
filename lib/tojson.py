@@ -31,13 +31,9 @@ for row in nodes :
     +',"empatados":'+str(row[4])+',"perdidos":'+str(row[5])+',"gf":'+str(row[6])+',"gc":'+str(row[7])+',"dif":'+str(row[8])
     +',"size":'+str(row[9])+'}')
 
-    fhand.write('{'+'"id":'+str(id)+',"name":"'+str(row[0])+'","jornada":'+str(row[1])+',"jugados":'+str(row[2])+',"ganados":'+str(row[3])
-    +',"empatados":'+str(row[4])+',"perdidos":'+str(row[5])+',"gf":'+str(row[6])+',"gc":'+str(row[7])+',"dif":'+str(row[8])
-    +',"size":'+str(row[9])+'}')
-
     count=count+1
     id = id+1
-fhand.write(']}')
+fhand.write(']}\n')
 fhand.close()
 
 #tablalocal
@@ -69,7 +65,7 @@ for row in nodeslocal :
 
     count=count+1
     id = id+1
-fhand.write(']}')
+fhand.write(']}\n')
 
 fhand.close()
 
