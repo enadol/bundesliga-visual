@@ -2,7 +2,7 @@
 import json
 import sqlite3
 
-url="2015-2016/bl.json"
+url="../2015-2016/bl.json"
 uh=urllib.urlopen(url)
 data=uh.read()
 js=json.loads(data)
@@ -66,7 +66,7 @@ else:
 		for fecha in range(0,jornada+1):
 
 			jornadascompletas=js['rounds'][fecha]['name']
-			conn = sqlite3.connect('tabla.sqlite')
+			conn = sqlite3.connect('../tabla.sqlite')
 			cur = conn.cursor()
 			conn.text_factory = str
 			start = 0

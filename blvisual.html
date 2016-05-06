@@ -45,7 +45,7 @@ var svg = d3.select("body").append("svg")
     .attr("height", diameter)
     .attr("class", "bubble");
 
-d3.json("json/tablaJson.json", function(error, root) {
+d3.json("json/tablavoll.json", function(error, root) {
   if (error) throw error;
 
   var node = svg.selectAll(".node")
