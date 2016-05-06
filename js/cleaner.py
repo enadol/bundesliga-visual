@@ -1,8 +1,10 @@
 ﻿  #!/usr/bin/python
   # -*- coding: utf-8 -*-
 
+#Para limpiar el json general obtenido del repositorio
+
 fname = raw_input("Enter a file name: ")
-if ( len(fname) < 1 ) : fname = '2015-2016/bl.json'
+if ( len(fname) < 1 ) : fname = '../2015-2016/bl.json'
 
 fh = open(fname)
 stringdata=fh.read()
