@@ -23,18 +23,15 @@ fhand.write('{\n"name": "flare", \n"children": [\n')
 count = 0
 id=count+1
 map = dict()
-#ranks = dict()
+
 for row in nodes :
     if count > 0 : fhand.write(',\n')
-    # print row
- #   rank = row[2]
- #   rank = 19 * ( (rank - minrank) / (maxrank - minrank) ) 
+ 
     fhand.write('{'+'"id":'+str(id)+',"name":"'+str(row[0])+'","jornada":'+str(row[1])+',"jugados":'+str(row[2])+',"ganados":'+str(row[3])
     +',"empatados":'+str(row[4])+',"perdidos":'+str(row[5])+',"gf":'+str(row[6])+',"gc":'+str(row[7])+',"dif":'+str(row[8])
     +',"size":'+str(row[9])+'}')
     #fhand.write(' "id":'+str(row[3])+', "url":"'+row[4]+'"}')
-    #map[row[3]] = count
-    #ranks[row[3]] = rank
+
     count=count+1
     id = id+1
 fhand.write(']}')
@@ -50,10 +47,8 @@ AND Puntos.Jornada=Partidos.Jornada AND GolesLocal.Jornada=Puntos.Jornada AND Pu
 GROUP BY Partidos.Equipo
 ORDER BY Puntos DESC, DIF DESC''')
 
-#fhand = open('tablavoll.js','w')
 nodeslocal = list()
-#maxrank = None
-#minrank = None
+
 for row in cur :
     nodeslocal.append(row)
 
@@ -61,18 +56,15 @@ fhand.write('{\n"name": "tablalocal", \n"children": [\n')
 count = 0
 id=count+1
 map = dict()
-#ranks = dict()
+
 for row in nodeslocal :
     if count > 0 : fhand.write(',\n')
-    # print row
- #   rank = row[2]
- #   rank = 19 * ( (rank - minrank) / (maxrank - minrank) ) 
+
     fhand.write('{'+'"id":'+str(id)+',"name":"'+str(row[0])+'","jornada":'+str(row[1])+',"jugados":'+str(row[2])+',"ganados":'+str(row[3])
     +',"empatados":'+str(row[4])+',"perdidos":'+str(row[5])+',"gf":'+str(row[6])+',"gc":'+str(row[7])+',"dif":'+str(row[8])
     +',"size":'+str(row[9])+'}')
     #fhand.write(' "id":'+str(row[3])+', "url":"'+row[4]+'"}')
-    #map[row[3]] = count
-    #ranks[row[3]] = rank
+
     count=count+1
     id = id+1
 fhand.write(']}')
@@ -101,9 +93,7 @@ map = dict()
 #ranks = dict()
 for row in nodesvisitante :
     if count > 0 : fhand.write(',\n')
-    # print row
- #   rank = row[2]
- #   rank = 19 * ( (rank - minrank) / (maxrank - minrank) ) 
+
     fhand.write('{'+'"id":'+str(id)+',"name":"'+str(row[0])+'","jornada":'+str(row[1])+',"jugados":'+str(row[2])+',"ganados":'+str(row[3])
     +',"empatados":'+str(row[4])+',"perdidos":'+str(row[5])+',"gf":'+str(row[6])+',"gc":'+str(row[7])+',"dif":'+str(row[8])
     +',"size":'+str(row[9])+'}')
