@@ -38,13 +38,13 @@ def getPuntos(equipo, afavor, encontra):
 
 	if afavor > encontra:
 		puntos=3
-		#countganados+=1
+		
 	elif afavor==encontra:
 		puntos=1
-		#countempatados+=1
+		
 	else:
 		puntos=0
-		#countperdidos+=1
+		
 	
 	return puntos
 
@@ -57,7 +57,7 @@ def getPartidosAcumulados(partidosviejo, partidosnuevo):
 jornadainput=raw_input("Ingrese la jornada: ")
 jornada=int(jornadainput)-1
 
-#equipoinput=raw_input("Ingrese el equipo: ")
+
 
 if jornada <0 or jornada >=34:
 	print "No se jugó la jornada "+jornadainput+" en ese torneo. Verifique y vuelva a ingresar."
@@ -126,23 +126,18 @@ else:
 
 				if equipo==club:
 					puntosuno=getPuntos(equipo, afavor, encontra)
-					#partidosuno=getPartidos(puntosuno)
-					#print puntosuno
+
 					if puntosuno==3:
 						countganados1+=1
 
-		#partido=ganados
+		
 					elif puntosuno==1:
 						countempatados1+=1
-		#partido=empatados
+		
 					else:
 						countperdidos1+=1	
 					countjugados1+=1
-					#print countganados1
-					#print countempatados1
-					#print countperdidos1
-					#print "\n"			
-					#puntosa=getPuntos(contrario, encontra, afavor)
+
 					subtotalganados1=getPartidosAcumulados(subtotalganados1, countganados1)
 					subtotalempatados1=getPartidosAcumulados(subtotalempatados1, countempatados1)
 					subtotalperdidos1=getPartidosAcumulados(subtotalperdidos1, countperdidos1)
@@ -151,23 +146,17 @@ else:
 
 				if contrario==club:
 					puntosdos=getPuntos(contrario, encontra, afavor)
-					#print puntosdos
-					#partidosdos=getPartidos(puntosdos)
+
 					if puntosdos==3:
 						countganados2+=1
-		#partido=ganados
+		
 					elif puntosdos==1:
 						countempatados2+=1
-		#partido=empatados
+		
 					else:
 						countperdidos2+=1	
-					#puntosb=getPuntos(equipo, afavor, encontra)	
+						
 					countjugados2+=1
-					#print countganados2
-					#print countempatados2
-					#print countperdidos2
-					#print "\n"	
-
 
 					subtotalganados2=getPartidosAcumulados(subtotalganados2, countganados2)
 					subtotalempatados2=getPartidosAcumulados(subtotalempatados2, countempatados2)
@@ -179,29 +168,13 @@ else:
 			sumaperdidos=subtotalperdidos1+subtotalperdidos2
 			sumatotal=sumaganados+sumaempatados+sumaperdidos
 
-			#print sumaganados
-			#print sumaempatados
-			#print sumaperdidos
-			#print "\n"
-		
-					#subtotaldos=getPartidosAcumulados(subtotaldos, puntosdos)
 
-					#subtotalb=getPuntosAcumulados(subtotalb, puntosb)
-				#sumpartidos=partidosuno+partidosdos
-				#sumtotallocal=subtotaluno+subtotaldos
-				#sumtotalvisitante=subtotala+subtotalb
-				
-				#sumaganados=sumtotallocal+sumtotalvisitante
 			print "Ganados "+club+" : "+str(sumaganados)+" a la "+jornadascompletas
 			print "Empatados: "+str(sumaempatados)
 			print "Perdidos: "+str(sumaperdidos)
 			print "Jugados local: "+str(subtotaljugados1)
 			print "Jugados visitante: "+str(subtotaljugadosa)
-			#print empatados
-			#print perdidos
-			#print "El equipo "+club+" sumaba "+str(sumtotallocal)+" partidos ganados como local a la "+jornadascompletas
-			#print "El equipo "+club+" sumaba "+str(subtotaldos)+" puntos como visitante a la "+jornadascompletas	
-			#print "El equipo "+club+" sumaba "+str(sumapuntos)+" puntos en total a la "+jornadascompletas
+			
 			cur.execute('''INSERT OR IGNORE INTO Partidos (Equipo, Jornada, PJ_Local, PJ_Visitante, PJ, PG_Local, PG__Visitante, PG, PE_Local, PE_Visitante, PE, PP_Local, PP_Visitante, PP)  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )''',
 			 (club, fecha+1, subtotaljugados1, subtotaljugadosa, sumatotal, subtotalganados1, subtotalganados2, sumaganados, subtotalempatados1, subtotalempatados2, sumaempatados, subtotalperdidos1, subtotalperdidos2, sumaperdidos))
 			conn.commit()			
